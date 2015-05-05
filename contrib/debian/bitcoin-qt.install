@@ -1,0 +1,6 @@
+bowscoin-qt usr/bin
+share/pixmaps/bitcoin32.xpm usr/share/pixmaps
+share/pixmaps/bitcoin16.xpm usr/share/pixmaps
+share/pixmaps/bitcoin128.png usr/share/pixmaps
+debian/bowscoin-qt.desktop usr/share/applications
+debian/bowscoin-qt.protocol usr/share/kde4/services/
