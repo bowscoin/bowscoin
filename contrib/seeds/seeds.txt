@@ -1,2 +1,0 @@
-192.99.35.69:9247 # node1.bowscoin.org
-37.59.54.5:9247 # node2.bowscoin.org

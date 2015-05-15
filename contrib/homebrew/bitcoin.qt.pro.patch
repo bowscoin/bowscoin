@@ -1,7 +1,7 @@
-diff --git a/bowscoin-qt.pro b/bowscoin-qt.pro
+diff --git a/bitcoin-qt.pro b/bitcoin-qt.pro
 index d938c07..e1dd4ec 100644
---- a/bowscoin-qt.pro
-+++ b/bowscoin-qt.pro
+--- a/bitcoin-qt.pro
++++ b/bitcoin-qt.pro
 @@ -353,7 +353,7 @@
  }
  
@@ -38,4 +38,3 @@ index d938c07..e1dd4ec 100644
  }
  
  win32:DEFINES += WIN32
-
