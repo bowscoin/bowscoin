@@ -16,10 +16,10 @@ SetCompressor /SOLID lzma
 !define MUI_HEADERIMAGE_RIGHT
 !define MUI_HEADERIMAGE_BITMAP "../share/pixmaps/nsis-header.bmp"
 !define MUI_FINISHPAGE_NOAUTOCLOSE
-!define MUI_BSCMENUPAGE_REGISTRY_ROOT HKLM
-!define MUI_BSCMENUPAGE_REGISTRY_KEY ${REGKEY}
-!define MUI_BSCMENUPAGE_REGISTRY_VALUENAME StartMenuGroup
-!define MUI_BSCMENUPAGE_DEFAULTFOLDER bowscoin
+!define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
+!define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
+!define MUI_STARTMENUPAGE_REGISTRY_VALUENAME StartMenuGroup
+!define MUI_STARTMENUPAGE_DEFAULTFOLDER bowscoin
 !define MUI_FINISHPAGE_RUN $INSTDIR\bowscoin-qt.exe
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "../share/pixmaps/nsis-wizard.bmp"
@@ -35,7 +35,7 @@ Var StartMenuGroup
 # Installer pages
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_DIRECTORY
-!insertmacro MUI_PAGE_BSCMENU Application $StartMenuGroup
+!insertmacro MUI_PAGE_STARTMENU Application $StartMenuGroup
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_PAGE_FINISH
 !insertmacro MUI_UNPAGE_CONFIRM
@@ -85,11 +85,11 @@ Section -post SEC0001
     WriteRegStr HKCU "${REGKEY}" Path $INSTDIR
     SetOutPath $INSTDIR
     WriteUninstaller $INSTDIR\uninstall.exe
-    !insertmacro MUI_BSCMENU_WRITE_BEGIN Application
+    !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     CreateDirectory $SMPROGRAMS\$StartMenuGroup
     CreateShortcut "$SMPROGRAMS\$StartMenuGroup\bowscoin.lnk" $INSTDIR\bowscoin-qt.exe
     CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall bowscoin.lnk" $INSTDIR\uninstall.exe
-    !insertmacro MUI_BSCMENU_WRITE_END
+    !insertmacro MUI_STARTMENU_WRITE_END
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayName "$(^Name)"
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayVersion "${VERSION}"
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" Publisher "${COMPANY}"
@@ -131,7 +131,7 @@ Section -un.post UNSEC0001
     DeleteRegKey HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)"
     Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Uninstall bowscoin.lnk"
     Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\bowscoin.lnk"
-    Delete /REBOOTOK "$SMBSCUP\bowscoin.lnk"
+    Delete /REBOOTOK "$SMSTARTUP\bowscoin.lnk"
     Delete /REBOOTOK $INSTDIR\uninstall.exe
     Delete /REBOOTOK $INSTDIR\debug.log
     Delete /REBOOTOK $INSTDIR\db.log
@@ -157,6 +157,6 @@ FunctionEnd
 # Uninstaller functions
 Function un.onInit
     ReadRegStr $INSTDIR HKCU "${REGKEY}" Path
-    !insertmacro MUI_BSCMENU_GETFOLDER Application $StartMenuGroup
+    !insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuGroup
     !insertmacro SELECT_UNSECTION Main ${UNSEC0000}
 FunctionEnd

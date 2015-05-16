@@ -301,7 +301,7 @@ bool ToolTipToRichTextFilter::eventFilter(QObject *obj, QEvent *evt)
 #ifdef WIN32
 boost::filesystem::path static StartupShortcutPath()
 {
-    return GetSpecialFolderPath(CSIDL_BSCUP) / "bowscoin.lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / "bowscoin.lnk";
 }
 
 bool GetStartOnSystemStartup()
