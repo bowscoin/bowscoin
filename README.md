@@ -1,3 +1,5 @@
+30 April 2019 - bowscoin repository will be deleted 
+
 BowsCoin [BSC]
 ==========================================
 Copyright (c) 2009-2013 Bitcoin Developers
