@@ -1,4 +1,4 @@
-30 April 2019 - bowscoin repository will be deleted 
+[**30 April 2019 - bowscoin repository will be deleted**](https://github.com/bowscoin/migration) 
 
 BowsCoin [BSC]
 ==========================================
