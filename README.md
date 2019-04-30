@@ -1,4 +1,4 @@
-[**From 30 April 2019 - bowscoin repository will not be supported**](https://github.com/bowscoin/migration "Migration BowsCoin on XLM asset") 
+[Migration is complete](https://github.com/bowscoin/migration "Migration BowsCoin on XLM asset") 
 
 BowsCoin [BSC]
 ==========================================
